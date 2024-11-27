@@ -7,11 +7,19 @@ const app=express();
 const PORT = process.env.PORT || 4000;
 
  app.use(express.json());
+
 dotenv.config();
 
 dbConnect();
 //mounting api routes
 app.use("/api/v1",router)
+
+app.get("/",(req,res)=>{
+ res.json({
+  success:true,
+  message: "Running successfully"
+ })
+})
 
 
 app.listen(PORT,()=>{
